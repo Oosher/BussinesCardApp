@@ -12,16 +12,13 @@ import useCards from "../hooks/useCards";
 import cardSchema from "../models/joi-schema/cardSchema";
 
 export default function EditCardPage() {
+ 
   //what do we need in this page
   //id of the card - useParams
   const { id } = useParams();
   //handleUpdateCard & handleGetCard & card - useCards
-  const {
-    handleUpdateCard,
-    handleGetCard,
-    value: { card },
-  } = useCards();
-
+  const {handleUpdateCard,handleGetCard,value: { card },} = useCards();
+  
   //user - useUser (provider)
   const { user } = useUser();
   //useForm (initialForm,schema,onSubmit)
