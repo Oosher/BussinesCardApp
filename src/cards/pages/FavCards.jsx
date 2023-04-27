@@ -8,11 +8,11 @@ import { useUser } from '../../users/providers/UserProvider';
 import { useNavigate } from 'react-router-dom';
 
 export default function FavCards() {
-  const { value, handleGetFavCards, handleDeleteCard } = useCards();
+    const { value, handleGetFavCards, handleDeleteCard } = useCards();
     const { cards, error, isLoading } = value;
 
     const { user } = useUser();
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
       useEffect(() => {
     if (!user) {

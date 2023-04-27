@@ -9,7 +9,7 @@ import { useUser } from "../../../users/providers/UserProvider";
 import CardDeleteDialog from "./CardDeleteDialog";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../../routes/routesModel";
-import useCards from "../../hooks/useCards";
+
 
 export default function CardActionBar({
   handleDelete,
@@ -20,9 +20,7 @@ export default function CardActionBar({
 }) {
   const { user } = useUser();
   const [isDialogOpen, setDialog] = useState(false);
-  const [isLiked,setIsLiked] = useState(false)
-  const {value} = useCards()
-  const {card} = value;
+  const [isLiked,setIsLiked] = useState(false);
   const navigate = useNavigate();
   const handleDeleteCard = () => {
     handleDelete(id);
@@ -30,7 +28,7 @@ export default function CardActionBar({
   };
 
   
-const changeLike = ()=> likes.findIndex((userId)=>userId===user.id)!==-1?setIsLiked(true):setIsLiked(false)
+const changeLike = ()=> likes.findIndex((userId)=>userId===user.id)!==-1?setIsLiked(true):setIsLiked(false);
   
 useEffect(()=>{changeLike()},[])
 
