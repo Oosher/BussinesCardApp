@@ -2,6 +2,7 @@ import React from "react";
 import { func, object, string } from "prop-types";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
+import useUsers from "../../users/hooks/useUsers";
 
 const CardForm = ({
   onSubmit,
@@ -12,6 +13,7 @@ const CardForm = ({
   data,
   title,
 }) => {
+  
   return (
     <Form
       onSubmit={onSubmit}
@@ -141,6 +143,16 @@ const CardForm = ({
         data={data}
         sm={6}
         required={false}
+      />
+      <Input
+        name="bizNumber"
+        label="bizNumber"
+        type="number"
+        error={errors.bizNumber}
+        onChange={onInputChange}
+        data={data}
+        sm={6}
+        required={true}
       />
     </Form>
   );

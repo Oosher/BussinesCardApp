@@ -6,6 +6,7 @@ import Spinner from "./../../components/Spinner";
 import Error from "./../../components/Error";
 import useCards from "../hooks/useCards";
 import CardsFeedback from "../components/CardsFeedback";
+import CreateCardButton from "../components/CreateCardButton";
 
 export default function CardPage() {
   const { value, handleGetCards, handleDeleteCard } = useCards();
@@ -32,6 +33,7 @@ export default function CardPage() {
           cards={cards}
           handleDelete={handleDelete}
         />
+        <CreateCardButton/>
       </Container>
     </div>
   );
