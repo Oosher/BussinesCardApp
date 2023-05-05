@@ -11,7 +11,7 @@ import normalizeCard from "../helpers/normalization/normalizeCard";
 import useCards from "../hooks/useCards";
 import cardSchema from "../models/joi-schema/cardSchema";
 
-export default function EditCardPage() {
+export default function CreateCardPage() {
  
   //what do we need in this page
   //id of the card - useParams

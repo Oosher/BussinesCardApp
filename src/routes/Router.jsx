@@ -33,6 +33,7 @@ import Todo from "../sandbox/stateHook/Todo";
 import LoginPage from "../users/pages/LoginPage";
 import SignupPage from "../users/pages/SignupPage";
 import ROUTES from "./routesModel";
+import CreateCardPage from "../cards/pages/CreateCardPage";
 
 export default function Router() {
   return (
@@ -45,6 +46,7 @@ export default function Router() {
       <Route path={ROUTES.FAV_CARDS} element={<FavCards />} />
       <Route path={ROUTES.MY_CARDS} element={<MyCards />} />
       <Route path={`${ROUTES.EDIT_CARD}/:id`} element={<EditCardPage />} />
+      <Route path={ROUTES.CREATE_CARD} element={<CreateCardPage />} />
       <Route path={`${ROUTES.CARD_INFO}/:id`} element={<CardDetailsPage />} />
       <Route path={ROUTES.SANDBOX} element={<SandBox />}>
         <Route path="counter" element={<Counter />} />
