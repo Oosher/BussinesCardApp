@@ -7,12 +7,14 @@ import initialCardForm from "../helpers/initialForms/initialCardForm";
 import normalizeCard from "../helpers/normalization/normalizeCard";
 import useCards from "../hooks/useCards";
 import cardSchema from "../models/joi-schema/cardSchema";
+import { useNavigate } from "react-router-dom";
+import ROUTES from "../../routes/routesModel";
 
 export default function CreateCardPage() {
 
   //handleUpdateCard & handleGetCard & card - useCards
-  const {handleCreateCard,value: { card },} = useCards();
-  
+  const {handleCreateCard} = useCards();
+  const goTo = useNavigate();
   //user - useUser (provider)
   const { user } = useUser();
   //useForm (initialForm,schema,onSubmit)
@@ -29,6 +31,10 @@ export default function CreateCardPage() {
     
   }, []);
 
+
+  if (!user) return goTo(ROUTES.ROOT);
+    
+  
 
   return (
     <Container

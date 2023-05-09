@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
 import ROUTES from "../../routes/routesModel";
+import useUsers from "../hooks/useUsers";
 
 const UserForm = ({
   onSubmit,
@@ -17,6 +18,8 @@ const UserForm = ({
   onInputChange,
   setData,
 }) => {
+
+  const {user} = useUsers();
   return (
     <Form
       onSubmit={onSubmit}
@@ -153,7 +156,7 @@ const UserForm = ({
             setData({ ...data, isBusiness: !!e.target.checked });
           }}
           name="isBusiness"
-          control={<Checkbox value={data.isBusiness} color="primary" />}
+          control={<Checkbox value={user?.isBusiness} defaultChecked  color="primary" />}
           label="Signup as business"
         />
       </Grid>

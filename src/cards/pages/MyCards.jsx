@@ -6,6 +6,7 @@ import ROUTES from "../../routes/routesModel";
 import { useUser } from "../../users/providers/UserProvider";
 import CardsFeedback from "../components/CardsFeedback";
 import useCards from "../hooks/useCards";
+import CreateCardButton from "../components/CreateCardButton";
 
 export default function MyCards() {
   const { value, handleGetMyCards, handleDeleteCard } = useCards();
@@ -20,7 +21,7 @@ export default function MyCards() {
     } else {
       handleGetMyCards();
     }
-  }, [user]);
+  }, [user,handleGetMyCards,navigate]);
 
   const handleDelete = async (id) => {
     await handleDeleteCard(id);
@@ -41,6 +42,7 @@ export default function MyCards() {
           handleDelete={handleDelete}
         />
       </Container>
+      <CreateCardButton/>
     </div>
   );
 }

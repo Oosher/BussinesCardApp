@@ -34,6 +34,7 @@ import LoginPage from "../users/pages/LoginPage";
 import SignupPage from "../users/pages/SignupPage";
 import ROUTES from "./routesModel";
 import CreateCardPage from "../cards/pages/CreateCardPage";
+import EditUserPage from "../users/pages/EditUserPage";
 
 export default function Router() {
   return (
@@ -43,6 +44,7 @@ export default function Router() {
       <Route path={ROUTES.ABOUT} element={<AboutPage />} />
       <Route path={ROUTES.LOGIN} element={<LoginPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
+      <Route path={ROUTES.EDIT_USER} element={<EditUserPage/>} />
       <Route path={ROUTES.FAV_CARDS} element={<FavCards />} />
       <Route path={ROUTES.MY_CARDS} element={<MyCards />} />
       <Route path={`${ROUTES.EDIT_CARD}/:id`} element={<EditCardPage />} />
