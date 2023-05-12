@@ -1,9 +1,9 @@
-import { Box, CardMedia, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
 import useCards from "../hooks/useCards";
-import {Map, GoogleApiWrapper } from "google-maps-react";
+
 import Maps from "../components/card/Maps";
 
 
@@ -27,7 +27,7 @@ export default function CardDetailsPage() {
         subtitle="Here you can find all the details about specific business"
       />
     
-      <Container sx={{width:"fit-content"}}>
+      <Container sx={{width:"fit-content",marginBottom:"20px"}}>
         <Typography>Business name :{card?.title} {card?.subtitle}</Typography>
         <Typography>Website :{card?.web}</Typography>
         <Typography>Business email :{card?.email}</Typography>

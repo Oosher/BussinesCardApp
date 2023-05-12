@@ -22,7 +22,7 @@ export default function SnackbarProvider({ children }) {
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={isSnackOpen}
         onClose={() => setOpenSnack((prev) => !prev)}
-        autoHideDuration={5000}
+        autoHideDuration={3000}
       >
         <Alert severity={snackColor} variant={snackVariant}>
           {snackMessage}

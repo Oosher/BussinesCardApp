@@ -64,7 +64,7 @@ useEffect(()=>{changeLike()},[])
           {user && (
             <IconButton sx={{color:isLiked?"red":null }}
               aria-label="Add to favorite"
-              onClick={() => {handleLike(id)
+              onClick={() => {handleLike(id,isLiked)
                               setIsLiked(!isLiked);
               }}
             >
@@ -84,7 +84,6 @@ useEffect(()=>{changeLike()},[])
 
 CardActionBar.propTypes = {
   handleDelete: func.isRequired,
-  handleEdit: func.isRequired,
   handleLike: func.isRequired,
   id: string.isRequired,
 };

@@ -6,9 +6,7 @@ import CardBussinesComponent from "./card/CardBussinesComponent";
 import useCards from "../hooks/useCards";
 
 export default function Cards({ cards, handleDelete }) {
-  const handleEdit = (id) => {
-    console.log(`Card ${id} is Edited`);
-  };
+
 
   const {handleLikeCard} = useCards();
 
@@ -20,8 +18,7 @@ export default function Cards({ cards, handleDelete }) {
             <CardBussinesComponent
               card={card}
               key={card._id}
-              handleDelete={handleDelete}
-              handleEdit={handleEdit}
+              handleDelete={handleDelete} 
               handleLike={handleLikeCard}
             />
           </Grid>

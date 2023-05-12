@@ -17,6 +17,7 @@ export default function useCards() {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [card, setCard] = useState(null);
+  
   useAxios();
   const snack = useSnack();
   const { user } = useUser();
@@ -85,11 +86,12 @@ export default function useCards() {
   }, []);
 
   //handleLikeCard
-  const handleLikeCard = useCallback(async (cardId) => {
+  const handleLikeCard = useCallback(async (cardId,likes) => {
     try {
       const card = await changeLikeStatus(cardId);
       requestStatus(false, null, cards, card);
-      snack("success", "The business card has been Liked");
+      
+      snack(likes?"error":"success", likes?"The business card has been unLiked":"The business card has been Liked");
     } catch (error) {
       requestStatus(false, error, null);
     }
