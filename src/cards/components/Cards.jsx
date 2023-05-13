@@ -12,9 +12,9 @@ export default function Cards({ cards, handleDelete }) {
 
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} > 
         {cards.map((card, index) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+          <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
             <CardBussinesComponent
               card={card}
               key={card._id}

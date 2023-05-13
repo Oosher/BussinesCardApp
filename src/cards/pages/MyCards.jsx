@@ -10,7 +10,7 @@ import CreateCardButton from "../components/CreateCardButton";
 
 export default function MyCards() {
   const { value, handleGetMyCards, handleDeleteCard } = useCards();
-  const { cards, error, isLoading } = value;
+  const { filteredCards, error, isLoading } = value;
 
   const { user } = useUser();
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function MyCards() {
         <CardsFeedback
           isLoading={isLoading}
           error={error}
-          cards={cards}
+          cards={filteredCards}
           handleDelete={handleDelete}
         />
       </Container>

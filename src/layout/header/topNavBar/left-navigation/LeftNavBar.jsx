@@ -11,19 +11,21 @@ export default function LeftNavBar() {
   console.log(user);
   return (
     <Box>
-      <LogoIcon />
+
 
       <Box
         sx={{
-          display: { xs: "none", md: "inline-flex" },
+          display: { xs: "none", md: "inline-flex",marginLeft:"1.5vw" }
         }}
       >
         <Logo />
-        <NavItem to={ROUTES.CARDS} label="Cards" />
-        <NavItem to={ROUTES.ABOUT} label="About" />
-        {user && <NavItem to={ROUTES.FAV_CARDS} label="Favorite cards" />}
-        {user?.isBusiness && <NavItem to={ROUTES.MY_CARDS} label="My cards" />}
-        {user?.isAdmin && <NavItem to={ROUTES.SANDBOX} label="Sandbox" />}
+        <Box sx={{marginTop:"1%"}}>
+          <NavItem to={ROUTES.CARDS} label="Cards" />
+          <NavItem to={ROUTES.ABOUT} label="About" />
+          {user && <NavItem to={ROUTES.FAV_CARDS} label="Favorite cards" />}
+          {user?.isBusiness && <NavItem to={ROUTES.MY_CARDS} label="My cards" />}
+          {user?.isAdmin && <NavItem to={ROUTES.SANDBOX} label="Sandbox" />}
+        </Box>
       </Box>
     </Box>
   );

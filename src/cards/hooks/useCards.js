@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import useAxios from "../../hooks/useAxios";
 import { useSnack } from "../../providers/SnackbarProvider";
 import { useUser } from "../../users/providers/UserProvider";
@@ -11,21 +11,50 @@ import {
   getCards,
   getMyCards,
 } from "../services/cardApiService";
+import { useSearchParams } from "react-router-dom";
 
 export default function useCards() {
   const [cards, setCards] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [card, setCard] = useState(null);
+  const [searchInput,setSearchInput] = useState("");
+  const [ query,setQuery] = useState ("")
+  const [filteredCards,setFilteredCards] = useState(null)
+  const [searchParams]= useSearchParams();
   
   useAxios();
   const snack = useSnack();
   const { user } = useUser();
 
+  useEffect(()=>{
+
+    setQuery(searchParams.get("q") ?? "")
+    
+  },[searchParams])
+
+
+    useEffect(()=>{
+
+          
+        if (cards) {
+
+          setFilteredCards(cards.filter((card)=>card.title.includes(query)||card.bizNumber.toString().includes(query)||card.phone.includes(query) ||  card.address.city.toLowerCase().includes(query)||card.address.city.toUpperCase().includes(query)))
+          
+        }
+      
+
+
+
+},[cards,query])
+
+
+
   const requestStatus = (loading, errorMessage, cards, card = null) => {
     setLoading(loading);
     setError(errorMessage);
     setCards(cards);
+    setFilteredCards(cards)
     setCard(card);
   };
 
@@ -121,8 +150,8 @@ export default function useCards() {
   }, []);
 
   const value = useMemo(() => {
-    return { isLoading, cards, card, error };
-  }, [isLoading, cards, card, error]);
+    return { isLoading, cards,filteredCards, card, error };
+  }, [isLoading, cards , filteredCards, card, error]);
 
   return {
     value,
@@ -134,5 +163,7 @@ export default function useCards() {
     handleCreateCard,
     handleGetFavCards,
     handleLikeCard,
+    searchInput,
+    setSearchInput,
   };
 }
