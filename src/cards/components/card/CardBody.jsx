@@ -19,9 +19,9 @@ export default function CardBody({
           <strong>Phone: </strong>
           {phone}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" sx={{overflow:"hidden",textOverflow:"ellipsis", whiteSpace:"nowrap" }}>
           <strong>Address: </strong>
-          {address.city} {address.street} {address.houseNumber}
+          {address.street} {address.houseNumber}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           <strong>Card Number: </strong>

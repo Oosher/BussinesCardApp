@@ -19,7 +19,6 @@ export default function CardDetailsPage() {
 
   },[])
 
-  console.log(card?.address);
   return (
     <Container >
       <PageHeader

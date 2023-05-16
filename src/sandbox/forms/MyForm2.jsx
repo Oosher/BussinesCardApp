@@ -48,14 +48,14 @@ export default function MyForm2() {
     return error ? true : false;
   };
 
-  console.log(errors);
+
   return (
     <>
       <Box
         component={"form"}
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("form submitted");
+        
         }}
       >
         <Typography>My Form</Typography>

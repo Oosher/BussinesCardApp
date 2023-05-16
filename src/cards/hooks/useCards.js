@@ -39,7 +39,7 @@ export default function useCards() {
           
         if (cards) {
 
-          setFilteredCards(cards.filter((card)=>card.title.includes(query)||card.bizNumber.toString().includes(query)||card.phone.includes(query) ||  card.address.city.toLowerCase().includes(query)||card.address.city.toUpperCase().includes(query)))
+          setFilteredCards(cards.filter((card)=>card.title.toLowerCase().includes(query)||card.title.toUpperCase().includes(query)||card.bizNumber.toString().includes(query)||card.phone.includes(query) ||  card.address.city.toLowerCase().includes(query)||card.address.city.toUpperCase().includes(query)))
           
         }
       

@@ -4,7 +4,7 @@ import imgType from "../../models/types/imgType";
 
 export default function CardHead({ image }) {
   return (
-    <CardMedia component="img" height="140" image={image.url} alt={image.alt} />
+    <CardMedia component="img" height="140" sx={{objectFit:"cover"}} image={image.url} alt={image.alt} />
   );
 }
 

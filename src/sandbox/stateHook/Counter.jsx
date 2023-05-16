@@ -15,7 +15,7 @@ export default function Counter() {
     if (counter > 0) {
       setCounter(counter - 1);
     } else {
-      console.log("Minimum value is 0");
+
     }
   };
 

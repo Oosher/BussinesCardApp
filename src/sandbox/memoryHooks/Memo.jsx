@@ -9,7 +9,7 @@ export default function Memo() {
 
   const slowFunction = useMemo(() => {
     for (let i = 0; i < 3000000000; i++) {}
-    console.log("in slow function");
+  
     return age * 2;
   }, [age]);
 

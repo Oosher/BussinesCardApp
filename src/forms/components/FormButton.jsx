@@ -11,7 +11,7 @@ const FormButton = ({
   disabled,
   node,
 }) => {
-  //  console.log("button " + node);
+
   return (
     <Button
       variant={variant}

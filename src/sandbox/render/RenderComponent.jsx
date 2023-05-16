@@ -15,7 +15,7 @@ export default function RenderComponent() {
   //   }, []);
 
   const doSomethingLong = useMemo(() => {
-    console.log("The long function is render");
+ 
     return 5 * value2;
   }, [value2]);
 
