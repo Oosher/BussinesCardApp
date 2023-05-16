@@ -25,7 +25,7 @@ export default function EditCardPage() {
   const { value, ...rest } = useForm(initialCardForm, cardSchema,() => {
     handleUpdateCard(card._id, {
       ...normalizeCard({ ...value.data }),
-      bizNumber: card.bizNumber,
+      bizNumber: user.isAdmin?value.data.bizNumber:card.bizNumber,
       user_id: card.user_id,
     });
   });

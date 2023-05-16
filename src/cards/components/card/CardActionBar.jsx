@@ -28,7 +28,7 @@ export default function CardActionBar({
   };
 
   
-const changeLike = ()=> likes.findIndex((userId)=>userId===user.id)!==-1?setIsLiked(true):setIsLiked(false);
+const changeLike = ()=> likes.findIndex((userId)=>userId===user?.id)!==-1?setIsLiked(true):setIsLiked(false);
   
 useEffect(()=>{changeLike()},[])
 
