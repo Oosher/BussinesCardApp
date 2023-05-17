@@ -1,5 +1,7 @@
 import Joi from "joi";
 
+import { getCards } from "../../services/cardApiService";
+
 const urlRegex =
   /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}|\/(?:[\w-]+\/)*[\w-]+\.(?:jpg|jpeg|png|gif|bmp|pdf|doc|docx|xls|xlsx|ppt|pptx|txt|csv|html|htm|js|css))/;
 
@@ -30,7 +32,25 @@ const cardSchema = {
   street: Joi.string().min(2).max(256).required(),
   houseNumber: Joi.number().required(),
   zip: Joi.number(),
-  bizNumber:Joi.number(),
+  bizNumber:Joi.number().custom( async(val,helpers)=>{
+ 
+    const cards =  await getCards()
+
+    const index =  cards.findIndex((card)=>card.bizNumber===val);
+
+
+      if ( index===-1) {
+        console.log(index);
+        return val
+        }else{
+          
+        return helpers.error("this Business number is already taken")
+      }
+        
+
+
+
+  }).rule({message:"this Business number is already taken"}) ,
 };
 
 export default cardSchema;
