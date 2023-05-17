@@ -44,7 +44,7 @@ const cardSchema = {
         return val
         }else{
           
-        return helpers.error("this Business number is already taken")
+        return helpers.message("this Business number is already taken")
       }
         
 
