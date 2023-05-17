@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState, } from "react";
 import { func, object, string } from "prop-types";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
-import useUsers from "../../users/hooks/useUsers";
+import CardsProvider from "../hooks/CardsProvider";
+import useCards from "../hooks/useCards";
+
+
 
 const CardForm = ({
   onSubmit,
@@ -13,7 +16,39 @@ const CardForm = ({
   data,
   title,
 }) => {
-  const {user}= useUsers();
+const {value,handleGetCards} =  useCards();
+
+
+const [bizErr,setBizError] = useState(null);
+
+useEffect (()=>{
+handleGetCards()
+
+},[])
+
+
+
+useEffect (()=>{
+bizValidate()
+
+},[data])
+
+const bizValidate =  ()=>{
+  
+  if (value?.cards.findIndex((card)=>card.bizNumber.toString()===data.bizNumber) ===-1) {
+    
+      setBizError(null);
+
+  }
+    else{
+
+        setBizError("this BizNumber is already taken")
+
+
+    }
+
+}
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -148,7 +183,7 @@ const CardForm = ({
         name="bizNumber"
         label="bizNumber"
         type="number"
-        error={errors.bizNumber}
+        error={errors.bizNumber?errors.bizNumber:"" + bizErr?bizErr:""}
         onChange={onInputChange}
         data={data}
         sm={6}

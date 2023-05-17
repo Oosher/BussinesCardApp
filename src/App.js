@@ -5,6 +5,7 @@ import Router from "./routes/Router";
 import ThemeProvider from "./providers/ThemeProvider";
 import SnackbarProvider from "./providers/SnackbarProvider";
 import UserProvider from "./users/providers/UserProvider";
+import CardsProvider from "./cards/hooks/CardsProvider";
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
         <SnackbarProvider>
           <ThemeProvider>
             <UserProvider>
-              <Layout>
-                <Router />
-              </Layout>
+            
+                <Layout>
+                  <Router />
+                </Layout>
+              
             </UserProvider>
           </ThemeProvider>
         </SnackbarProvider>

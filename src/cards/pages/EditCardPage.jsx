@@ -10,6 +10,7 @@ import mapCardToModel from "../helpers/normalization/mapToModel";
 import normalizeCard from "../helpers/normalization/normalizeCard";
 import useCards from "../hooks/useCards";
 import cardSchema from "../models/joi-schema/cardSchema";
+import CardsProvider from "../hooks/CardsProvider";
 
 export default function EditCardPage() {
  
@@ -47,6 +48,7 @@ export default function EditCardPage() {
         alignItems: "center",
       }}
     >
+   
       <CardForm
         title="edit card"
         onSubmit={rest.onSubmit}
@@ -56,6 +58,7 @@ export default function EditCardPage() {
         onInputChange={rest.handleChange}
         data={value.data}
       />
+     
     </Container>
   );
 }
