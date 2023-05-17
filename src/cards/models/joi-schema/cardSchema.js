@@ -35,7 +35,7 @@ const cardSchema = {
   street: Joi.string().min(2).max(256).required(),
   houseNumber: Joi.number().required(),
   zip: Joi.number(),
-  bizNumber:Joi.number() ,
+  bizNumber:Joi.number().min(10).rule({ message: 'must be a number bigger than 10 and cannot be an existing card number ' }).allow("").required(),
 };
 
 export default cardSchema;

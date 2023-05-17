@@ -2,7 +2,6 @@ import React, { useEffect, useState, } from "react";
 import { func, object, string } from "prop-types";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
-import CardsProvider from "../hooks/CardsProvider";
 import useCards from "../hooks/useCards";
 
 
@@ -34,6 +33,11 @@ bizValidate()
 },[data])
 
 const bizValidate =  ()=>{
+
+  
+  const element= {target:{name:"bizNumber",value:"1"
+
+  }}
   
   if (value?.cards.findIndex((card)=>card.bizNumber.toString()===data.bizNumber) ===-1) {
     
@@ -41,7 +45,7 @@ const bizValidate =  ()=>{
 
   }
     else{
-
+        onInputChange(element)
         setBizError("this BizNumber is already taken")
 
 
